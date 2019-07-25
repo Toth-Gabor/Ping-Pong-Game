@@ -19,6 +19,9 @@ namespace Ping_Pong_Game
             //this.TopMost = true;
             //this.Bounds = Screen.PrimaryScreen.Bounds;
             racket.Top = playGround.Bottom - (playGround.Bottom / 10);
+            gameOver_label.Left = (playGround.Width / 2) - (gameOver_label.Width / 2);
+            gameOver_label.Top = (playGround.Height / 2) - (gameOver_label.Height / 2);
+            gameOver_label.Visible = false;
         }
 
         private void PlayGroundForm_KeyDown(object sender, KeyEventArgs e)
@@ -38,6 +41,7 @@ namespace Ping_Pong_Game
                 speed_left += 2;
                 speed_top = -speed_top;
                 points += 1;
+                points_label.Text = points.ToString();
 
             }
 
@@ -59,6 +63,7 @@ namespace Ping_Pong_Game
             if (ball.Bottom >= playGround.Bottom)
             {
                 timer1.Enabled = false;
+                gameOver_label.Visible = true;
             }
         }
 
