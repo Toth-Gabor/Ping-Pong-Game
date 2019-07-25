@@ -27,6 +27,29 @@ namespace Ping_Pong_Game
         private void PlayGroundForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape) { Application.Exit(); }
+            if (e.KeyCode == Keys.Space)
+            {
+                if (timer1.Enabled == true)
+                {
+                    timer1.Stop();
+                }
+                else if (timer1.Enabled == false)
+                {
+                    timer1.Start();
+                }
+                
+            }
+            if (e.KeyCode == Keys.F1)
+            {
+                ball.Left = 50;
+                ball.Top = 50;
+                speed_left = 14;
+                speed_top = 14;
+                points = 0;
+                points_label.Text = "0";
+                timer1.Enabled = true;
+                gameOver_label.Visible = false;
+            }
         }
 
         private void Timer1_Tick(object sender, System.EventArgs e)
