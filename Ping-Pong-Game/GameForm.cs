@@ -4,15 +4,63 @@ namespace Ping_Pong_Game
 {
     public partial class playGroundForm : Form
     {
+        public int speed_left = 14;
+        public int speed_top = 14;
+        public int points = 0;
+
         public playGroundForm()
         {
             InitializeComponent();
+            timer1.Enabled = true;
+            timer1.Start();
+            Cursor.Hide();
 
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.TopMost = true;
+            //this.Bounds = Screen.PrimaryScreen.Bounds;
+            racket.Top = playGround.Bottom - (playGround.Bottom / 10);
         }
 
-        private void Racket_Click(object sender, System.EventArgs e)
+        private void PlayGroundForm_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Escape) { Application.Exit(); }
         }
+
+        private void Timer1_Tick(object sender, System.EventArgs e)
+        {
+            racket.Left = Cursor.Position.X - (racket.Width / 2);
+            ball.Left += speed_left;
+            ball.Top += speed_top;
+
+            if (ball.Bottom >= racket.Top && ball.Bottom <= racket.Bottom && ball.Left >= racket.Left && ball.Right <= racket.Right)
+            {
+                speed_top += 2;
+                speed_left += 2;
+                speed_top = -speed_top;
+                points += 1;
+
+            }
+
+            if (ball.Left <= playGround.Left)
+            {
+                speed_left = -speed_left;
+            }
+
+            if (ball.Right >= playGround.Right)
+            {
+                speed_left = -speed_left;
+            }
+
+            if (ball.Top <= playGround.Top)
+            {
+                speed_top = -speed_top;
+            }
+
+            if (ball.Bottom >= playGround.Bottom)
+            {
+                timer1.Enabled = false;
+            }
+        }
+
     }
 }
