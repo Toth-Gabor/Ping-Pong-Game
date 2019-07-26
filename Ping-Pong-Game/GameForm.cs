@@ -30,6 +30,7 @@ namespace Ping_Pong_Game
             gameOver_label.Visible = false;
             score_label.SendToBack();
             points_label.SendToBack();
+
         }
 
         private void PlayGroundForm_KeyDown(object sender, KeyEventArgs e)
