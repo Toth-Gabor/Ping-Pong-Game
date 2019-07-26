@@ -62,11 +62,11 @@
             this.gameOver_label.AutoSize = true;
             this.gameOver_label.BackColor = System.Drawing.SystemColors.Control;
             this.gameOver_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.81132F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.gameOver_label.Location = new System.Drawing.Point(305, 187);
+            this.gameOver_label.Location = new System.Drawing.Point(209, 169);
             this.gameOver_label.Name = "gameOver_label";
-            this.gameOver_label.Size = new System.Drawing.Size(220, 176);
+            this.gameOver_label.Size = new System.Drawing.Size(297, 264);
             this.gameOver_label.TabIndex = 4;
-            this.gameOver_label.Text = "Game Over\r\nPress\r\nF1 - Restrat\r\nEsc - Exit\r\n";
+            this.gameOver_label.Text = "Game Over!\r\nPress\r\nF1 - New Game\r\nF2 - Hard Mod\r\nF3 - Harder Mod\r\nEsc - Exit\r\n";
             this.gameOver_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // points_label

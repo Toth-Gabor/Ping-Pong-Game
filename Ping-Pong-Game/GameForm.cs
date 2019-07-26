@@ -4,11 +4,12 @@ namespace Ping_Pong_Game
 {
     public partial class playGroundForm : Form
     {
-        public int speed_left = 14;
-        public int speed_top = 14;
+        public int speed_left = 10;
+        public int speed_top = 10;
         public int points = 0;
         private readonly int maxLeft;
         private readonly int maxRight;
+
 
 
         public playGroundForm()
@@ -17,10 +18,6 @@ namespace Ping_Pong_Game
             timer1.Enabled = true;
             timer1.Start();
             Cursor.Hide();
-            maxLeft = 0;
-            maxRight = playGround.Width - racket.Width;
-
-
             //this.FormBorderStyle = FormBorderStyle.None;
             //this.TopMost = true;
             //this.Bounds = Screen.PrimaryScreen.Bounds;
@@ -30,6 +27,8 @@ namespace Ping_Pong_Game
             gameOver_label.Visible = false;
             score_label.SendToBack();
             points_label.SendToBack();
+            maxLeft = 0;
+            maxRight = playGround.Width - racket.Width;
 
         }
 
@@ -48,17 +47,46 @@ namespace Ping_Pong_Game
                 }
 
             }
+
             if (e.KeyCode == Keys.F1)
             {
                 ball.Left = 50;
                 ball.Top = 50;
-                speed_left = 4;
-                speed_top = 4;
+                speed_left = 10;
+                speed_top = 10;
                 points = 0;
                 points_label.Text = "0";
                 timer1.Enabled = true;
                 gameOver_label.Visible = false;
             }
+
+            if(e.KeyCode == Keys.F2)
+            {
+                ball.Left = 50;
+                ball.Top = 50;
+                speed_left = 15;
+                speed_top = 15;
+                points = 0;
+                points_label.Text = "0";
+                timer1.Enabled = true;
+                gameOver_label.Visible = false;
+                racket.Width = 100; 
+            }
+
+            if (e.KeyCode == Keys.F3)
+            {
+                ball.Left = 50;
+                ball.Top = 50;
+                speed_left = 20;
+                speed_top = 20;
+                points = 0;
+                points_label.Text = "0";
+                timer1.Enabled = true;
+                gameOver_label.Visible = false;
+                racket.Width = 50;
+
+            }
+
         }
 
         private void Timer1_Tick(object sender, System.EventArgs e)
@@ -84,7 +112,6 @@ namespace Ping_Pong_Game
             {
                 racket.Left = maxRight;
             }
-
 
             if (ball.Left <= playGround.Left)
             {
